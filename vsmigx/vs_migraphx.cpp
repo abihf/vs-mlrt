@@ -723,8 +723,8 @@ static void VS_CC vsMIGXCreate(
         }
         migraphx_shape_datatype_t type;
         checkError(migraphx_shape_type(&type, input_shape));
-        if (type != migraphx_shape_float_type) {
-            return set_error("input type must be float");
+        if (type != migraphx_shape_float_type && type != migraphx_shape_half_type) {
+            return set_error("input type must be float or half");
         }
         const size_t * lengths;
         size_t ndim;
@@ -786,8 +786,8 @@ static void VS_CC vsMIGXCreate(
         }
         migraphx_shape_datatype_t type;
         checkError(migraphx_shape_type(&type, output_shape));
-        if (type != migraphx_shape_float_type) {
-            return set_error("output type must be float");
+        if (type != migraphx_shape_float_type && type != migraphx_shape_half_type) {
+            return set_error("output type must be float or half");
         }
         const size_t * lengths;
         size_t ndim;
