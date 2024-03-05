@@ -791,7 +791,7 @@ static void VS_CC vsMIGXCreate(
         if (type != migraphx_shape_float_type && type != migraphx_shape_half_type) {
             return set_error("output type must be float or half");
         }
-        bitsPerSample = type != migraphx_shape_float_type ? 32 : 16;
+        bitsPerSample = type == migraphx_shape_float_type ? 32 : 16;
         const size_t * lengths;
         size_t ndim;
         checkError(migraphx_shape_lengths(&lengths, &ndim, output_shape));
